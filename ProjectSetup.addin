@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Text>Command ProjectSetup</Text>
+    <Description>Some description for ProjectSetup</Description>
+    <Assembly>ProjectSetup.dll</Assembly>
+    <FullClassName>ProjectSetup.Command</FullClassName>
+    <ClientId>1d5e8c7e-6f8b-4ea2-840f-5555f9b29996</ClientId>
+    <VendorId>com.typepad.thebuildingcoder</VendorId>
+    <VendorDescription>The Building Coder, http://thebuildingcoder.typepad.com</VendorDescription>
+  </AddIn>
+  <AddIn Type="Application">
+    <Name>Application ProjectSetup</Name>
+    <Assembly>ProjectSetup.dll</Assembly>
+    <FullClassName>ProjectSetup.App</FullClassName>
+    <ClientId>44e12f90-c57d-43e2-9a5c-6a4c65d7712f</ClientId>
+    <VendorId>com.typepad.thebuildingcoder</VendorId>
+    <VendorDescription>The Building Coder, http://thebuildingcoder.typepad.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>
