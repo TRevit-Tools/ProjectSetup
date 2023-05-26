@@ -8,7 +8,7 @@ using Autodesk.Revit.UI;
 namespace ProjectSetup
 {
     [Transaction(TransactionMode.Manual)]
-    public class CopyAndSaveAddin : IExternalCommand
+    public class CopyAndSaveCommand : IExternalCommand
     {
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
@@ -43,7 +43,7 @@ namespace ProjectSetup
 
                         // Open the source model
                         OpenOptions openOptions = new OpenOptions();
-                        openOptions.Detached = true;
+                        openOptions.DetachFromCentralOption = DetachFromCentralOption.DetachAndPreserveWorksets;
                         Document sourceDoc = app.OpenDocumentFile(sourceModelPath, openOptions);
 
                         // Save the source document as a new central model
@@ -52,12 +52,13 @@ namespace ProjectSetup
                         saveAsOptions.Compact = true;
                         saveAsOptions.MaximumBackups = 1;
                         WorksharingSaveAsOptions worksharingOptions = new WorksharingSaveAsOptions();
+                        
                         worksharingOptions.SaveAsCentral = true;
                         saveAsOptions.SetWorksharingOptions(worksharingOptions);
                         sourceDoc.SaveAs(targetModelPath, saveAsOptions);
 
                         // Copy the source model to the target path
-                        File.Copy(sourcePath, targetPath, true);
+                        //File.Copy(sourcePath, targetPath, true);
 
                         TaskDialog.Show("Success", "Model copied and saved successfully!");
 
